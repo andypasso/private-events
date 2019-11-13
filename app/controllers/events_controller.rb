@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
-  before_action :logged_in, only: [:new, :create]
+  before_action :logged_in, only: %i[new create]
   def new
     @event = Event.new
   end
@@ -13,7 +15,7 @@ class EventsController < ApplicationController
     else
       render :new
     end
-    end
+  end
 
   def index
     @upcoming_events = Event.upcoming
@@ -21,14 +23,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event=Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
-
 
   private
 
   def event_params
     params.require(:event).permit(:date, :description)
-
   end
 end
