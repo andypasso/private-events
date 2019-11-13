@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <nav>
+      <ul style="display: flex; justify-content: space-around; font-size: 30px">
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "Event new", new_event_path %></li>
+        <li><%= link_to "Login", login_path %></li>
+        <li><%= link_to "Log out", logout_path %></li>
+      </ul>
+    </nav>
+    <%if current_user %>
+      <p><b>Logged in as <%= current_user.email %></b></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
