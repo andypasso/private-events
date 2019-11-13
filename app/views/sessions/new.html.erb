@@ -1,9 +1,9 @@
-<%= form_with(model: @user, local: true , url: create_session_path ) do |form| %>
+<%= form_with(model: @user, method: 'POST' , local: true , url: login_path ) do |form| %>
 
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.email_field :email %>
   </div>
 
 

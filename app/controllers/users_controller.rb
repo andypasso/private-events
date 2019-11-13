@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @upcoming_events = Event.upcoming
+    @prev_events = Event.past
   end
+
 
   # GET /users/new
   def new
@@ -61,27 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
-    def create_session
-      @user = User.find_by_email(session_params)
-      if @user
-        session[:user_id] = @user.id
-        redirect_to user
-      else
-        redirect_to users_path, alert: "user doesn't exist"
-      end
-
-    end
-
-    def destroy_session
-      session.delete(:user_id)
-      redirect_to users_path
-    end
-
-    def new_session
-      @user=User.new  
-    end
-
-
+   
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -93,7 +76,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email)
     end
 
-    def session_params
-      params.require(:user).permit(:email)
-    end
 end

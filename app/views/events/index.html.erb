@@ -1,12 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Events</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-<p> Previous events </p>
-
+<p> Previous Events </p>
 <ul>
     <% @prev_events.each do |event| %>
     <li> <%= event.id %> : <%= event.date %> </li>
@@ -20,10 +16,3 @@
     <li> <%= event.id %> : <%= event.date %> </li>
     <% end %>
 </ul>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
