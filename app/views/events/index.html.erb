@@ -5,7 +5,7 @@
 <p> Previous Events </p>
 <ul>
     <% @prev_events.each do |event| %>
-    <li> <%= event.id %> : <%= event.date %> </li>
+      <%= render 'events/event', event: event %>
     <% end %>
 </ul>
 
@@ -13,6 +13,6 @@
 <p> Upcoming events </p>
 <ul>
     <% @upcoming_events.each do |event| %>
-    <li> <%= event.id %> : <%= event.date %> </li>
+      <%= render 'events/event', event: event %>
     <% end %>
 </ul>

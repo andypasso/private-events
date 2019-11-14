@@ -8,7 +8,6 @@ class EventsController < ApplicationController
 
   def create
     @creator = User.find(session[:user_id])
-    p @creator
     @event = @creator.created_events.build(event_params)
     if @event.save
       redirect_to users_path, notice: 'Event was successfully created.'
@@ -24,6 +23,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  def attend
+    @event = Event.find(params[:id])
+    @event.attendees << current_user
+    redirect_to events_path
   end
 
   private
