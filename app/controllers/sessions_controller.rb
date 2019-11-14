@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(session_params[:email])
     if @user
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to @user, notice: "Logged in as #{@user.email}"
     else
       redirect_to users_path, alert: "user doesn't exist"
     end
