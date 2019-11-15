@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :event_authoring, foreign_key: :event_attendee_id
   has_many :attended_events, through: :event_authoring
 
-  validates :name , presence: true
-  validates :email , presence: true, length:{minimum: 5 , maximum: 20} 
+  validates :name, presence: true
+  validates :email, presence: true, length: { minimum: 5, maximum: 20 }
 end

@@ -3,11 +3,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
-
   def index
     @users = User.all
   end
-
 
   def show
     @created_u = @user.created_events.upcoming
@@ -16,16 +14,13 @@ class UsersController < ApplicationController
     @attended_p = @user.attended_events.past
   end
 
-
   def new
     @user = User.new
   end
 
-
   def edit
     redirect_to root_path, alert: "You can't do that" unless @user == current_user
   end
-
 
   def create
     @user = User.new(user_params)

@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   has_many :event_authoring, foreign_key: :attended_event_id
   has_many :attendees, through: :event_authoring, source: :event_attendee
 
-  validates :date , presence: true
+  validates :date, presence: true
   validates :creator_id, presence: true
-  validates :description , presence: true
+  validates :description, presence: true
 end
