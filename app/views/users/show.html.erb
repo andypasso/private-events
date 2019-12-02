@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+<h2>Created</h2>
+<p> Previous events </p>
+
+<ul>
+    <% @created_p.each do |event| %>
+    <li> <%= event.id %> : <%= event.date %> </li>
+    <% end %>
+</ul>
+
+
+<p> Upcoming events </p>
+<ul>
+    <% @created_u.each do |event| %>
+    <li> <%= event.id %> : <%= event.date %> </li>
+    <% end %>
+</ul>
+
+<h2>Attended</h2>
+<p> Previous events </p>
+
+<ul>
+  <% @attended_p.each do |event| %>
+    <li> <%= event.id %> : <%= event.date %> </li>
+  <% end %>
+</ul>
+
+
+<p> Upcoming events </p>
+<ul>
+  <% @attended_u.each do |event| %>
+    <li> <%= event.id %> : <%= event.date %> </li>
+  <% end %>
+</ul>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<% if @user == current_user %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Back', users_path %>
