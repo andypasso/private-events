@@ -1,0 +1,13 @@
+<%= form_with(model: @user, method: 'POST' , local: true , url: login_path ) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Log in" %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @event.date %></strong>
+  <p> Attendees: </p>
+</p>
+
+<ul>
+    <% @event.attendees.each do |attendee| %>
+    <li> <%= attendee.name %> </li>
+    <% end %>
+<ul>
+
